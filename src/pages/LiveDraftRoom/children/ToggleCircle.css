@@ -1,0 +1,28 @@
+.toggle-circle-wrapper {
+  width: 40px;
+  height: 24px;
+  background-color: #777; /* default background when OFF */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-circle-wrapper.checked {
+  background-color: #803bb1; /* background when ON */
+}
+
+.toggle-circle {
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.toggle-circle.checked {
+  background-color: #BE7BED;
+  transform: translateX(16px);
+}

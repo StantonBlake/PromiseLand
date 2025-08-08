@@ -1,0 +1,79 @@
+/* Container padding */
+.history-results-container {
+  padding: 1rem;
+  color: #eee;
+  background-color: #121212;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Label */
+.year-select-label {
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
+
+/* Dropdown select styling */
+.year-select {
+  background-color: #222;
+  color: #eee;
+  border: 1px solid #555;
+  border-radius: 4px;
+  padding: 6px 50px 6px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Custom arrow */
+  background-image:
+    linear-gradient(45deg, transparent 50%, #eee 50%),
+    linear-gradient(135deg, #eee 50%, transparent 50%),
+    linear-gradient(to right, #555, #555);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 25px) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.year-select:hover,
+.year-select:focus {
+  border-color: #aaa;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Table styling */
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results-table th,
+.results-table td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid #444;
+}
+
+.results-table thead th {
+  border-bottom: 2px solid #666;
+  font-weight: 600;
+}
+
+.results-table tbody tr:hover {
+  background-color: #2a2a2a;
+}
+
+/* No data message cell */
+.no-data-cell {
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+  color: #888;
+}

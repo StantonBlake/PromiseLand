@@ -1,0 +1,150 @@
+.auction-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 16px;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  color: white;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+/* Empty State */
+.auction-block.empty {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-style: italic;
+  color: #ccc;
+}
+
+/* Tier Borders + Glow */
+.tier-1 { border: 3px solid var(--tier1); box-shadow: 0 0 10px var(--tier1); }
+.tier-2 { border: 3px solid var(--tier2); box-shadow: 0 0 10px var(--tier2); }
+.tier-3 { border: 3px solid var(--tier3); box-shadow: 0 0 10px var(--tier3); }
+.tier-4 { border: 3px solid var(--tier4); box-shadow: 0 0 10px var(--tier4); }
+.tier-5 { border: 3px solid var(--tier5); box-shadow: 0 0 10px var(--tier5); }
+.tier-6 { border: 3px solid var(--tier6); box-shadow: 0 0 10px var(--tier6); }
+.tier-7 { border: 3px solid var(--tier7); box-shadow: 0 0 10px var(--tier7); }
+
+/* Player Info */
+.ab-player-info {
+  margin-bottom: 1rem;
+}
+
+.ab-player-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #f0f0f0;
+  margin: 0;
+}
+
+.player-meta,
+.player-fpts {
+  font-size: 0.95rem;
+  margin: 0.3rem 0;
+}
+
+/* Name + Tier */
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Tier Badge */
+.tier-badge {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.tier-1 .tier-badge { background-color: var(--tier1); color: black; }
+.tier-2 .tier-badge { background-color: var(--tier2); color: black; }
+.tier-3 .tier-badge,
+.tier-4 .tier-badge,
+.tier-5 .tier-badge,
+.tier-6 .tier-badge,
+.tier-7 .tier-badge {
+  color: white;
+}
+.tier-3 .tier-badge { background-color: var(--tier3); }
+.tier-4 .tier-badge { background-color: var(--tier4); }
+.tier-5 .tier-badge { background-color: var(--tier5); }
+.tier-6 .tier-badge { background-color: var(--tier6); }
+.tier-7 .tier-badge { background-color: var(--tier7); }
+
+/* Player Stat Grid */
+.player-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1rem;
+  margin-top: 0.5rem;
+}
+
+.stat .label {
+  font-weight: 600;
+  color: #ccc;
+}
+
+/* Actions */
+.auction-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.draft-btn,
+.clear-btn {
+  flex: 1;
+  padding: 0.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-size: 0.95rem;
+}
+
+.draft-btn {
+  background-color: #4caf50;
+}
+
+.clear-btn {
+  background-color: #f44336;
+}
+
+/* =============
+   Responsive
+============== */
+@media (max-width: 768px) {
+  .auction-block {
+    padding: 0.75rem;
+  }
+
+  .ab-player-name {
+    font-size: 1.2rem;
+  }
+
+  .player-meta,
+  .player-fpts {
+    font-size: 0.85rem;
+  }
+
+  .draft-btn,
+  .clear-btn {
+    padding: 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  .player-stats {
+    gap: 0.3rem 0.75rem;
+  }
+}

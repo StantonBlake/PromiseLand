@@ -1,0 +1,254 @@
+:root {
+  --bg-dark: #121212;
+  --bg-panels: #1e1e1e;
+  --text-headers: #60a5fa;
+  --text-main: #34d399;
+  --text-muted: #c2c2c2;
+  --accent: #92140C;
+  --tertiary: #34d399;
+
+  --money: #00e676;
+
+  --tier1:#FFD700;
+  --tier2:#10b981;
+  --tier3:#3b82f6;
+  --tier4:#a855f7;
+  --tier5:#8b8b8b;
+  --tier6:#c23434;
+  --tier7:#202020;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.draft-room {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #111; /* or your app background */
+  position: relative;
+  z-index: 0;
+  width: 100vw; /* constrain horizontal width */
+}
+.exit-draft-arrow {
+  position: fixed;
+  bottom: 3rem;
+  left: .5rem;
+  background: none;
+  border: none;
+  color: rgb(167, 167, 167);
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 2000;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.exit-draft-arrow:hover {
+  color: rgb(255, 255, 255);
+}
+
+
+/* ============
+   Budget Panel
+============== */
+.budget-panel {
+  display: flex;
+  position: relative;
+  z-index: 20;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-panels);
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  flex-wrap: nowrap;
+    max-width: 100vw; /* limit width to screen */
+    overflow-x: auto;
+}
+
+.budget-panel::-webkit-scrollbar {
+  display: none;
+}
+
+.budget-panel > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
+
+/* ============
+   Draft Ticker
+============== */
+.draft-ticker {
+  height: 30px;
+  font-size: 0.8rem;
+  padding: 0.25rem 1rem;
+  background-color: var(--bg-panels);
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+/* =====================
+   Main Panel Scroll Row
+===================== */
+.main-panel-row {
+  width: 100vw;
+  height: calc(100dvh - 100px); /* already set, good */
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+}
+.main-panel-row > * {
+  flex: 0 0 100vw;
+  scroll-snap-align: start;
+  height: 100%;
+}
+
+/* Hide scrollbar thumb for horizontal scroll */
+.main-panel-row::-webkit-scrollbar {
+  height: 0;
+}
+
+/* ========================
+   Best Available Section
+======================== */
+.best-available {
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-snap-type: x mandatory;
+  background-color: var(--bg-dark);
+}
+
+.best-available > * {
+  scroll-snap-align: start;
+}
+
+.login-screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d1117;
+  color: white;
+  padding: 1rem;
+}
+
+.login-box {
+  background-color: #161b22;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00000055;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-box input {
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+  background: #0d1117;
+  color: white;
+  width: 100%;
+}
+
+.login-box button {
+  padding: 0.6rem 1.2rem;
+  background-color: #238636;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+}
+
+.login-box button:hover {
+  background-color: #2ea043;
+}
+
+
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #121212;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* ============
+   Responsive View
+   ============ */
+@media (min-width: 1024px) {
+  .budget-panel {
+    flex-wrap: nowrap;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    height: 60px;
+  }
+
+  .draft-ticker {
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .main-panel-row {
+    flex-direction: row;
+    overflow-x: visible;
+    height: auto;
+  }
+
+  .main-panel-row > * {
+    flex: 1 1 0;
+    max-width: none;
+    min-height: auto;
+    scroll-snap-align: none;
+    overflow-y: auto;
+  }
+
+  .best-available {
+    scroll-snap-type: none;
+    height: auto;
+  }
+}
+

@@ -1,0 +1,112 @@
+.final-standings-wrapper {
+  max-width: 700px;
+  width: 100%; /* full width on small screens */
+  margin: 0 auto;
+  background-color: #111827;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e5e7eb;
+  box-sizing: border-box;
+  overflow-x: auto; /* Enable horizontal scroll on small devices */
+}
+
+.standings-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f9fafb;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  white-space: nowrap; /* prevent title wrapping */
+}
+
+.final-standings-table {
+  width: 100%;
+  min-width: 600px; /* ensures table has minimum width before scroll */
+  border-collapse: collapse;
+}
+
+.final-standings-table thead th {
+  background-color: #1e293b;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-bottom: 2px solid #374151;
+  white-space: nowrap; /* prevent headers wrapping */
+}
+
+.final-standings-table tbody td {
+  padding: 0.6rem 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid #374151;
+  font-size: 0.95rem;
+  white-space: nowrap; /* prevent cell text wrapping */
+}
+
+.final-standings-table tbody tr:hover {
+  background-color: #243244;
+  transition: background 0.3s ease;
+}
+
+.legacy-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legacy-score {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fefefe;
+}
+
+.legacy-delta {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.legacy-delta.delta-positive {
+  color: #22c55e;
+}
+
+.legacy-delta.delta-negative {
+  color: #ef4444;
+}
+
+/* Podium Rows */
+.final-standings-table .champion-row {
+  background: linear-gradient(90deg, #facc15, #b45309);
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.final-standings-table .silver-row {
+  background: linear-gradient(90deg, #c0c0c0, #7f7f7f);
+  color: #1c1c1c;
+  font-weight: 600;
+}
+
+.final-standings-table .bronze-row {
+  background: linear-gradient(90deg, #cd7f32, #7a4f1e);
+  color: #fdf6ed;
+  font-weight: 600;
+}
+
+/* === Responsive adjustments === */
+@media (max-width: 480px) {
+  .final-standings-wrapper {
+    padding: 0.5rem;
+  }
+
+  .standings-title {
+    font-size: 1.25rem;
+  }
+
+  .final-standings-table thead th,
+  .final-standings-table tbody td {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}

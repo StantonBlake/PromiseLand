@@ -1,0 +1,216 @@
+/* FullPlayerListTab.css */
+
+.full-player-list-tab {
+  background-color: #121212;
+  color: #e0e0e0;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  align-items: center;
+  color: #bbb;
+}
+
+.controls label {
+  cursor: pointer;
+  user-select: none;
+}
+.position-toggle-group {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 0;
+}
+
+.position-toggle-btn {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid #444;
+  background-color: #1e1e1e;
+  color: #aaa;
+  font-size: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.position-toggle-btn:hover {
+  background-color: #2c2c2c;
+  color: #eee;
+  border-color: #666;
+}
+
+.position-toggle-btn.active {
+  background-color: var(--text-main);
+  color: white;
+  border-color: #1c7253;
+  box-shadow: 0 0 4px #007acc66;
+}
+.controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: .1rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+
+
+.position-toggle-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.4rem;
+  user-select: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+
+}
+
+.position-toggle-option:hover {
+  background-color: #333;
+}
+
+
+
+.position-toggle-option .circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--text-main);
+  background-color: transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.position-toggle-option.active .circle {
+  background-color: var(--text-main);
+}
+
+.position-toggle-option .label-text {
+  color: var(--text-main);
+  font-size: 0.85rem;
+}
+
+
+.controls input[type="checkbox"] {
+  margin-right: 0.5rem;
+  transform: scale(1.2);
+  vertical-align: middle;
+}
+
+.controls select {
+  margin-left: 0.5rem;
+  background-color: #222;
+  border: 1px solid #444;
+  color: #eee;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.controls select:focus {
+  outline: 2px solid var(--text-headers);
+}
+
+/* Table wrapper for horizontal scroll on mobile */
+.full-player-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px; /* allow scroll on smaller screens */
+  overflow-x: auto;
+  display: block;
+  max-height: 70vh;
+  scrollbar-width: thin;
+  scrollbar-color: #444 transparent;
+}
+
+/* Scrollbar styles for webkit browsers */
+.full-player-table::-webkit-scrollbar {
+  height: 8px;
+}
+
+.full-player-table::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.full-player-table::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+
+/* Table header */
+.full-player-table thead tr {
+  background-color: #1f1f1f;
+  border-bottom: 2px solid #444;
+}
+
+.full-player-table th {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #ccc;
+  user-select: none;
+}
+
+/* Table body */
+.full-player-table tbody tr {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.full-player-table tbody tr:nth-child(even) {
+  background-color: #1a1a1a;
+}
+
+.full-player-table tbody tr:nth-child(odd) {
+  background-color: #121212;
+}
+
+.full-player-table tbody tr:hover,
+.full-player-table tbody tr:focus-visible {
+  background-color: #333;
+  outline: none;
+  color: #fff;
+}
+
+/* Table data cells */
+.full-player-table td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid #222;
+  white-space: nowrap;
+  color: #ddd;
+}
+
+/* For very small devices, allow horizontal scroll */
+@media (max-width: 600px) {
+  .full-player-table {
+    min-width: 100%;
+  }
+  .controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,280 @@
+:root {
+  --bg-dark: #121212;
+  --text-headers: #34d399;
+  --text-main: #60a5fa;
+  --text-muted: #c2c2c2;
+  --accent: #92140c;
+  --tertiary: #34d399;
+
+  --money: #00e676; /* soft green */
+
+  --tier1: #ffd700;
+  --tier2: #10b981;
+  --tier3: #3b82f6;
+  --tier4: #a855f7;
+  --tier5: #8b8b8b;
+  --tier6: #c23434;
+  --tier7: #202020;
+}
+
+/* Wrapper fills viewport height */
+.best-available-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-dark);
+  color: white;
+  user-select: none;
+}
+
+/* Title at top */
+.best-available-title {
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0.75rem 0 0.5rem 0;
+  font-weight: 700;
+  color: var(--text-headers);
+  flex-shrink: 0;
+}
+
+/* Horizontal row container */
+.best-available-row {
+  flex: 1;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  gap: 0; /* no gap so each page is full width */
+
+  /* Hide scrollbar for WebKit browsers */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.best-available-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Each position column is a full viewport width “page” */
+.position-column {
+  scroll-snap-align: start;
+  flex: 0 0 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  outline: none;
+}
+
+/* Position header */
+.position-header {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.25rem;
+}
+
+/* No players message */
+.no-players {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #777;
+  text-align: center;
+  margin-top: 2rem;
+  flex-grow: 1;
+}
+
+/* Player cards container: vertical stack */
+.position-column > .player-card:first-child {
+  margin-top: 0;
+}
+
+/* Player card - taller and larger font on mobile */
+.player-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: #111827;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-size: 1rem;
+  gap: 0.2rem;
+  user-select: none;
+  min-height: auto;
+  box-sizing: border-box;
+}
+
+.player-card:hover,
+.player-card:focus {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+/* Left border tier bar */
+.player-tier-indicator {
+  width: 6px;
+  height: 100%;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+
+/* Player name up top */
+.ba-player-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-headers);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.2rem;
+  text-align: center;
+  width: 100%;
+}
+
+
+.ba-player-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 90%;
+  font-size: 1rem;
+  color: #ccc;
+  padding-top: 4px;
+  
+  background-color: transparent; /* No background box */
+  border: none;
+}
+
+
+/* Bottom row with team + fpts */
+.player-info-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 0.25rem;
+}
+
+
+
+/* Player team */
+.player-team {
+  color: var(--text-muted);
+  text-align: left;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 3rem;
+}
+
+/* Player points */
+.player-points {
+  font-weight: 700;
+  color: var(--text-main);
+  text-align: right;
+  flex: 0;
+  white-space: nowrap;
+}
+
+/* Dot indicators container */
+.dot-indicator-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 0.75rem 0;
+  background-color: var(--bg-dark);
+  flex-shrink: 0;
+
+  /* Raise dots to avoid overlay panel */
+  position: relative;
+  bottom: 30px; /* raise dots by 10px */
+}
+
+/* Each dot */
+.dot {
+  width: 14px;
+  height: 14px;
+  background-color: #555;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.dot.active {
+  background-color: var(--text-main);
+  border-color: #185e44;
+}
+
+/* Accessibility focus for dots */
+.dot:focus {
+  outline: 4px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments for laptop and up */
+@media (min-width: 1024px) {
+  .best-available-wrapper {
+    height: auto;
+  }
+
+  /* Change the row container to flex with gaps */
+  .best-available-row {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: none;
+    padding: 1rem;
+  }
+
+  /* Position column stays vertical but narrower width */
+  .position-column {
+    flex: 0 0 22vw; /* fixed width so 5 columns fit on screen */
+    max-height: none;
+    overflow: visible;
+    padding: 0.5rem;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+  }
+
+  /* Player cards become compact rows */
+  .player-card {
+    padding: 0.1rem 0.1rem;
+    margin-bottom: 0.1rem;
+    font-size: 0.6rem;
+  }
+
+  .ba-player-name {
+    font-size: 1rem;
+    
+  }
+
+  .player-info-footer {
+    font-size: 0.75rem;
+
+  }
+
+  .player-points {
+    font-size: 0.8rem;
+  }
+
+  .player-team {
+    font-size: 0.75rem;
+  }
+
+  /* Hide dot indicators on desktop */
+  .dot-indicator-row {
+    display: none;
+  }
+}

@@ -1,0 +1,154 @@
+.draft-vs-finish-chart {
+  max-width: 700px;
+  width: 100%; /* Make full width on smaller screens */
+  margin: 2rem auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e7ff;
+  background-color: #1e293b;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+}
+
+/* Title remains centered and sized */
+.chart-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Stack rows vertically with spacing */
+.chart-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Individual row */
+.chart-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+/* Manager name with flexible width and ellipsis */
+.manager-name {
+  flex: 1 1 120px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 100px; /* prevent shrinking too small */
+}
+
+/* Bar container adapts to smaller widths */
+.bar-container {
+  position: relative;
+  flex: 1 1 300px;
+  min-width: 150px; /* set a minimum for small devices */
+  height: 20px;
+  background-color: #334155; /* dark slate */
+  border-radius: 10px;
+  overflow: visible;
+  user-select: none;
+}
+
+/* Zero line stays centered */
+.zero-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #64748b; /* medium slate */
+  transform: translateX(-50%);
+}
+
+/* Bars keep height and radius */
+.bar {
+  position: absolute;
+  top: 3px;
+  height: 14px;
+  border-radius: 8px;
+  transition: width 0.4s ease;
+  z-index: 1;
+}
+
+.bar.positive {
+  background-color: #22c55e; /* green */
+  transform-origin: left center;
+}
+
+.bar.negative {
+  background-color: #ef4444; /* red */
+  transform-origin: right center;
+}
+
+/* Movement label inside the bar container */
+.movement-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.movement-label.positive {
+  color: #4ade80;
+  padding-left: 4px;
+}
+
+.movement-label.negative {
+  color: #f87171;
+  padding-right: 4px;
+}
+
+/* Rank info with smaller text and wrapping */
+.rank-info {
+  flex: 0 0 100px;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap; /* wrap on small screens */
+  min-width: 80px;
+}
+
+.rank-info .label {
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+/* === Responsive tweaks === */
+@media (max-width: 480px) {
+  .chart-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .manager-name {
+    flex: none;
+    width: 100%;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+
+  .bar-container {
+    flex: none;
+    width: 100%;
+    min-width: unset;
+  }
+
+  .rank-info {
+    flex: none;
+    width: 100%;
+  }
+}

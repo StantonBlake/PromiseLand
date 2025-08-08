@@ -1,0 +1,65 @@
+.draft-ticker-container {
+  overflow: hidden;
+  background: rgb(0, 0, 0);
+  border-top: 2px solid #444;
+  border-bottom: 2px solid #444;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+.draft-ticker-content {
+  display: inline-flex;
+  animation: scroll-left 25s linear infinite;
+}
+
+.draft-ticker-item {
+  display: inline-flex;
+  gap: 0.3rem;
+  font-weight: 500;
+  font-size: 1rem;
+  padding-right: 3rem; /* spacing between picks */
+  white-space: nowrap;
+  color: #ddd;
+}
+
+.dt-player-name {
+  font-weight: bold;
+  font-size: 1.6rem;
+  background: linear-gradient(90deg, #c8f902, #c8f902);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  
+  
+}
+
+
+.dt-team-name {
+  color: #60a5fa;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.dt-cost {
+  color: #00e676;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.fallback-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #FFCC00, #FFCC00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}

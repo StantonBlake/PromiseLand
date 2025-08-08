@@ -1,0 +1,69 @@
+.accordion-team-card {
+  border-radius: 12px;
+  background-color: #252535;
+  margin: 1rem 0;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.6);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.accordion-team-card:hover {
+  box-shadow: 0 6px 14px rgba(0,0,0,0.9);
+}
+
+.team-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  color: #eee;
+  background-color: #1f1f2f;
+  border-bottom: 1px solid #444466;
+  font-size: 1.1rem;
+}
+
+.manager-name {
+  flex: 1;
+  text-align: left;
+}
+
+.available-budget {
+  flex: 1;
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-primary, #803bb1);
+}
+
+.player-count {
+  flex: 1;
+  text-align: right;
+  font-weight: 500;
+  color: #bbb;
+}
+
+/* Accordion content hidden by default */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 1.5rem;
+}
+
+/* When open: expand */
+.accordion-team-card.open .accordion-content {
+  max-height: 1000px; /* sufficiently large to show content */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.budget-positive {
+  color: #4caf50; /* nice green */
+  font-weight: 700;
+}
+
+.budget-negative {
+  color: #f44336; /* bright red */
+  font-weight: 700;
+}

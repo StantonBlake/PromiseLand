@@ -1,0 +1,205 @@
+.legacy-scoreboard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 0;
+}
+
+
+/* ───────────── Header Row (Desktop Only) ───────────── */
+.scoreboard-header {
+  display: none;
+  grid-template-columns: 40px 1fr 60px;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+  color: #aaa;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.header-rank {
+  text-align: center;
+}
+.header-name {
+  text-align: left;
+}
+.header-score {
+  text-align: right;
+}
+
+/* ───────────── Score Card ───────────── */
+.score-card {
+  display: grid;
+  grid-template-columns: 40px 1fr 60px;
+  align-items: center;
+  background: #1e1e2f;
+  color: var(--text-color, #e0e0e0);
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+  transform-origin: center;
+  transform: scale(var(--scale, 1));
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+  cursor: pointer;
+  position: relative;
+
+  /* Fix overflow issues */
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+.score-card.expanded {
+  background-color: #2a3655;
+  box-shadow: 0 0 12px #57575799;
+}
+
+/* ───────────── Rank & Score ───────────── */
+.rank {
+  font-size: 1.1rem;
+  color: #bbb;
+  text-align: center;
+  font-weight: 700;
+}
+
+.score {
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffe81a;
+}
+
+/* ───────────── Manager Name & Trophies ───────────── */
+.name {
+  justify-self: center;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.inline-trophies {
+  font-size: 0.95rem;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+/* ───────────── Top 3 Backgrounds ───────────── */
+.gold {
+  background: linear-gradient(135deg, #3a2a00,#c9a436, #f5c842,#c9a436, #3a2a00);
+  --ranked-text-color: #1c1300;
+  --expanded-text-color: #f1d97a;
+}
+
+.silver {
+  background: linear-gradient(135deg, #3b3b3b,#aaaaaa,#c0c0c0, #aaaaaa, #3b3b3b);
+  --ranked-text-color: #121212;
+  --expanded-text-color: #f1d97a;
+}
+
+.bronze {
+  background: linear-gradient(135deg, #4b2e1f, #b16e2b,#cd7f32,#b16e2b, #4b2e1f);
+  --ranked-text-color: #140e0b;
+  --expanded-text-color: #f1d97a;
+}
+
+/* ───────────── Expanded Content ───────────── */
+.expanded-content {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  border-top: 1px solid #444;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(#121212, #ccc); /* fallback to #ccc for others */
+  transition:
+    max-height 0.4s ease,
+    opacity 0.4s ease,
+    margin-top 0.3s ease;
+}
+
+.score-card.expanded .expanded-content {
+  max-height: 300px;
+  opacity: 1;
+  margin-top: 0.5rem;
+}
+
+/* ───────────── Expanded: Manager Stats & Badges ───────────── */
+.manager-stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.champ-year-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  min-width: max-content;
+}
+
+.champ-year-badge {
+  background-color: #ffd700;
+  color: #1c1c1c;
+  padding: 0.3rem 0.6rem;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* ───────────── Desktop Overrides ───────────── */
+@media (min-width: 900px) {
+  .legacy-scoreboard {
+    max-width: none;
+    margin: 0;
+  }
+
+  .scoreboard-header {
+    display: grid;
+  }
+
+  .score-card {
+    transform: scale(1) !important;
+    cursor: default;
+  }
+
+  .score-card:hover {
+    background-color: #2d3a5f;
+    box-shadow: 0 0 16px #0a2d61f6;
+    transform: scale(1.03);
+    z-index: 5;
+  }
+
+  .expanded-content {
+    flex-wrap: wrap;
+    max-height: none !important;
+    opacity: 1 !important;
+    margin-top: 0.75rem;
+  }
+
+  .manager-stats {
+    min-width: 180px;
+  }
+}

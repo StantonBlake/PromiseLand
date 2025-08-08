@@ -1,0 +1,187 @@
+.team-viewer {
+  padding: 1rem;
+  color: #f0f0f0;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: auto; /* so children scroll, not the outer container */
+}
+
+.viewer-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-headers);
+}
+
+.team-select {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #2a2a2a;
+  color: white;
+  width: 100%;
+}
+
+.sort-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #ddd;
+  margin-bottom: 0.75rem;
+}
+
+.sort-controls select {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: white;
+  flex: 1 1 auto;
+}
+
+/* ========== Card that scrolls inside the panel ========== */
+.team-card {
+  background-color: #2a2a2a;
+  padding: 1rem;
+  border-radius: 12px;
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  /* Hide scrollbar - Firefox */
+  scrollbar-width: none;
+
+  /* Hide scrollbar - IE, Edge */
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar - WebKit browsers */
+.team-card::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Header and metadata */
+.team-header {
+  margin-bottom: 1rem;
+}
+
+.team-header h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.team-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Roster / Players */
+.roster {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.player-row {
+  display: grid;
+  grid-template-columns: 1fr 60px 50px;
+  align-items: center;
+  padding: 0.4rem 0.4rem;
+  background-color: #222;
+  color: #eee;
+  border: 2px solid #444;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  border-left: 5px solid transparent;
+}
+
+.tv-player-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.tv-player-fpts {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #60a5fa;
+}
+
+.tv-player-price {
+  text-align: right;
+  font-weight: bold;
+  color: var(--money);
+  font-size: 0.9rem;
+}
+
+.empty-slot {
+  grid-column: span 3;
+  text-align: center;
+  color: #777;
+  padding: 0.5rem;
+  font-style: italic;
+  border: 1px dashed #555;
+  border-radius: 6px;
+}
+
+/* Position Borders */
+.player-row.qb { border-left-color: #ff6161; }
+.player-row.rb { border-left-color: #82ff7e; }
+.player-row.wr { border-left-color: #336dda; }
+.player-row.te { border-left-color: #e69e4c; }
+.player-row.flex { border-left-color: #888888; }
+
+/* ====================
+   Desktop Enhancements
+==================== */
+@media (min-width: 1024px) {
+  .team-viewer {
+    padding: 1.5rem;
+  }
+
+  .viewer-title {
+    font-size: 1.6rem;
+  }
+
+  .team-select {
+    font-size: 1rem;
+  }
+
+  .sort-controls {
+    font-size: 0.95rem;
+  }
+
+  .sort-controls select {
+    font-size: 0.95rem;
+  }
+
+  .player-row {
+    font-size: 0.9rem;
+    grid-template-columns: 1fr 80px 60px;
+  }
+
+  .tv-player-name {
+    font-size: 1.3rem;
+  }
+
+  .tv-player-price {
+    font-size: 1rem;
+  }
+
+  .tv-player-fpts {
+    font-size: 0.95rem;
+  }
+}

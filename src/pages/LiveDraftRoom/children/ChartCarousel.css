@@ -1,0 +1,84 @@
+.chart-carousel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  background: #111;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.chart-slider {
+  display: flex;
+  flex-direction: row;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.chart-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.chart-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-placeholder {
+  padding: 2rem;
+  text-align: center;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: #1a1a1a;
+  border-top: 1px solid #333;
+}
+
+.carousel-controls button {
+  background: #333;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.carousel-controls button:hover:not(:disabled) {
+  background: #555;
+}
+
+.carousel-controls button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.carousel-controls span {
+  color: #ccc;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

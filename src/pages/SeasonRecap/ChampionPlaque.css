@@ -1,0 +1,104 @@
+.champion-plaque {
+  background: linear-gradient(135deg, #ffefba 0%, #ffffff 100%);
+  border: 2px solid #ffd700; /* gold */
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  max-width: 400px;
+  width: 100%;          /* full width on small screens */
+  margin: 1.5rem auto;  /* vertical spacing */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  color: #663300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Georgia', serif;
+  box-sizing: border-box;
+  flex-wrap: wrap;      /* allow wrapping on narrow screens */
+  gap: 1rem;
+}
+
+.plaque-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  /* stack vertically on small screens */
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.trophy-icon {
+  width: 48px;
+  height: 48px;
+  color: #ffd700;
+  flex-shrink: 0;
+}
+
+.plaque-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  min-width: 200px;  /* avoid too narrow on large screens */
+  flex: 1 1 auto;
+}
+
+.plaque-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.plaque-manager {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 0.1rem;
+}
+
+.plaque-record {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .champion-plaque {
+    background: linear-gradient(135deg, #5a4715 0%, #3a2d0f 100%);
+    border-color: #f5d742;
+    color: #f5d742;
+    box-shadow: 0 0 15px rgba(245, 215, 66, 0.7);
+  }
+
+  .trophy-icon {
+    color: #f5d742;
+  }
+}
+
+/* Responsive tweaks for small screens */
+@media (max-width: 480px) {
+  .plaque-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plaque-text {
+    min-width: unset;
+    text-align: center;
+  }
+
+  .plaque-manager {
+    font-size: 1.25rem;
+  }
+
+  .plaque-title {
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+  }
+
+  .plaque-record {
+    font-size: 0.9rem;
+  }
+}

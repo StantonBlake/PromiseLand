@@ -1,0 +1,91 @@
+:root {
+  --bg-dark: #121212;
+  --bg-panels: #1e1e1e;
+  --text-headers: #60a5fa;
+  --text-main: #34d399;
+  --text-muted: #c2c2c2;
+  --accent: #92140C;
+  --tertiary: #34d399;
+
+
+}
+
+.chart-wrapper {
+  /* make sure wrapper expands to fit chart */
+  height: auto;
+  min-height: 320px; /* match your chart height */
+  overflow: visible;
+  width: 100%;
+}
+
+.summary-section {
+  /* allow children to fully show and no clipping */
+  overflow: visible;
+  padding: 0 0.5rem;   /* optional horizontal padding */
+  margin-bottom: 1rem; /* some spacing below */
+  display: flex;
+  flex-direction: column;
+}
+.summary-panel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.2rem;
+  overflow: visible;  
+  max-height: none;
+  height: auto;
+  
+}
+
+.team-ranking-list {
+  list-style: none;
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+  color: var(--text-main);
+}
+
+.ranking-item {
+  margin-bottom: 0.3rem;
+}
+
+.section-title,
+.section-subtitle {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--text-headers);
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
+
+  .selector-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .selector-list button {
+    flex: 1 1 45%;
+  }
+}
+@media (max-width: 768px) {
+  .summary-panel-container {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+}
+

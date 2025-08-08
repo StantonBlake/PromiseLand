@@ -1,0 +1,142 @@
+/* Dashboard.css — Mobile First Dark Mode */
+
+.dashboard {
+  width: 100vw;              /* Full viewport width */
+  margin: 0;                 /* Remove auto-centering */
+  padding: 1rem 0 2rem;      /* Remove side padding */
+  background-color: #1e1e1e; /* Assuming you want a background */
+  box-sizing: border-box;
+}
+
+
+
+.dashboard-title {
+  text-align: center;
+  color: #4db8ff;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 🔵 Added spacing box for text content */
+.dashboard-intro {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #dddddd;
+  text-align: justify;
+  padding: 1 50rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Legacy Board Styles */
+.legacy-board {
+  width: 100%;
+  padding: .01rem 0; /* vertical only */
+  background-color: #1e1e1e;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+
+
+
+.legacy-board-inner {
+  width: 100%;
+  max-width: 900px;        /* Keeps cards readable on large screens */
+  margin: 0 auto;
+  padding: 0 0.5rem;        /* ✅ slight edge spacing for visual polish */
+  box-sizing: border-box;
+}
+
+
+
+
+
+/* Wrapper for horizontal scroll on small screens */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #000000 transparent;
+}
+
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 4px;
+}
+
+.board-title {
+  text-align: center;
+  color: #e4c413;
+  text-shadow: 0 0 10px rgb(41, 41, 40);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.legacy-table {
+  width: 100%;
+  min-width: 300px;
+  border-collapse: collapse;
+}
+
+.legacy-table th,
+.legacy-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  color: #e0e0e0;
+  white-space: nowrap;
+}
+
+.legacy-table th {
+  border-bottom: 2px solid #444;
+  color: #aaaaaa;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.legacy-table td {
+  border-bottom: 1px solid #2c2c2c;
+  font-size: 0.9rem;
+}
+
+.top-rank {
+  background-color: #2a3a4f;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.top-rank td {
+  border-bottom: 1px solid #555;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+  .dashboard {
+    margin: 2rem auto;
+    padding: 2rem 0 3rem; /* 🔄 Remove horizontal padding */
+    gap: 1.5rem;
+  }
+
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .dashboard-intro {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 0 2rem;       /* 🔄 Slightly more padding on larger screens */
+    max-width: 900px;
+  }
+
+  .board-title {
+    font-size: 1.4rem;
+  }
+}
